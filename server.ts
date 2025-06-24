@@ -7,7 +7,6 @@ dotenv.config()
 const app = express()
 app.use(express.json())
 
-// Test kết nối DB khi app chạy
 prisma.$connect()
   .then(() => {
     console.log('✅ Kết nối database thành công!')
