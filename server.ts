@@ -1,30 +1,21 @@
-import express, { Request, Response } from 'express'
+import express from 'express'
 import dotenv from 'dotenv'
 import prisma from './config/db.js'
+import userRouter from './routes/userRouter.js'
 
 dotenv.config()
-
 const app = express()
+
 app.use(express.json())
 
-prisma.$connect()
-  .then(() => {
-    console.log('✅ Kết nối database thành công!')
-  })
-  .catch((err) => {
-    console.error('❌ Kết nối database thất bại:', err)
-  })
-
-app.get('/', async (req: Request, res: Response) => {
-  try {
-    const users = await prisma.user.findMany()
-    res.json({ message: '✅ Server is running', users })
-  } catch (error: any) {
-    res.status(500).json({ error: error.message })
-  }
+prisma.$connect().then(() => {
+  console.log('✅ Kết nối database thành công!')
+}).catch((error:unknown) => {
+  console.error('❌ Kết nối database thất bại:', error)
 })
 
-const PORT = process.env.PORT || 3000
-app.listen(PORT, () => {
-  console.log(`🚀 Server is listening on http://localhost:${PORT}`)
+app.use('/users', userRouter)
+
+app.listen(3000, () => {
+  console.log('🚀 Server is listening on http://localhost:3000')
 })
