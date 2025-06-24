@@ -6,6 +6,7 @@ import {
   createUser,
   updateUser,
   softDeleteUser,
+  restoreUser,
   updateUserRole,
 } from "../controllers/userController.js";
 
@@ -17,5 +18,7 @@ router.post("/", createUser);
 router.put("/:id", updateUser);
 router.delete("/:id", softDeleteUser);
 router.patch("/:id/role", updateUserRole);
+router.patch('/:id/restore', restoreUser);
+
 
 export default router;

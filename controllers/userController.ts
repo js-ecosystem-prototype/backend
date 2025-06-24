@@ -81,6 +81,19 @@ export const softDeleteUser: RequestHandler = async (req, res) => {
     res.status(500).json({ error: error.message })
   }
 }
+//khôi phục
+export const restoreUser: RequestHandler = async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    const user = await prisma.user.update({
+      where: { id },
+      data: { deletedAt: null }  
+    })
+    res.status(200).json({ message: 'Khôi phục user thành công'})
+  } catch (error: any) {
+    res.status(500).json({ error: error.message })
+  }
+}
 
 // Thay đổi role user
 export const updateUserRole: RequestHandler = async (req, res) => {
