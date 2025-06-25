@@ -1,7 +1,6 @@
 import express, { Request, Response } from 'express'
 import dotenv from 'dotenv'
 import prisma from './config/db.js'
-
 dotenv.config()
 
 const app = express()
@@ -12,7 +11,7 @@ prisma.$connect()
   .then(() => {
     console.log('✅ Kết nối database thành công!')
   })
-  .catch((err) => {
+  .catch((err: any) => {
     console.error('❌ Kết nối database thất bại:', err)
   })
 
