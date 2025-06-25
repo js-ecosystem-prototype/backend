@@ -1,7 +1,7 @@
 import { RequestHandler } from 'express'
 import prisma from '../config/db.js'
 
-// Lấy danh sách user (bỏ qua user đã xóa mềm)
+// Lấy danh sách user
 export const getAllUsers: RequestHandler = async (req, res) => {
   try {
     const users = await prisma.user.findMany({
