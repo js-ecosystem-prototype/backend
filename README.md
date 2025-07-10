@@ -1,5 +1,10 @@
 # EcoSystemJS Backend
 
+##Update 11/07/2025
+```
+GET: /api/v1/members
+```
+
 ## Hướng dẫn cấu hình khi clone dự án
 
 ### 1. Clone dự án
