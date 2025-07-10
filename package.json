@@ -5,11 +5,11 @@
   "main": "dist/server.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
     "start": "node dist/server.js",
-    "dev": "concurrently \"tsc --watch\" \"nodemon dist/server.js\"",
+    "dev": "tsx watch src/server.ts",
     "migrate": "npx prisma migrate dev",
-    "generate": "npx prisma generate"
+    "generate": "npx prisma generate",
+    "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.10.1",
@@ -23,6 +23,7 @@
     "concurrently": "^9.2.0",
     "nodemon": "^3.1.10",
     "prisma": "^6.10.1",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   }
 }
