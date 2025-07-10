@@ -3,7 +3,7 @@ import memberController from "./memberController.js";
 const router = Router();  
 
 
-router.get("/", memberController.getAllMembers);
+router.get("/api/v1/members", memberController.getAllMembers);
 
 
 export default router;
