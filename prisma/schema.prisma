@@ -9,7 +9,7 @@ datasource db {
 
 model Member {
   id         String     @id @default(uuid())
-  name       String     @db.VarChar(50)
+  name       String     @db.VarChar(255)
   rollNumber String     @unique @map("roll_number") @db.VarChar(8)
   department Department
   address    String?    @db.VarChar(255)
