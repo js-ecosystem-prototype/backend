@@ -4,6 +4,6 @@ const router = Router();
 
 
 router.get("/api/v1/members", memberController.getAllMembers);
-
+router.get("/api/v1/members/:id", memberController.getMemberById);
 
 export default router;

@@ -17,8 +17,29 @@ const getAllMembers = async (req: Request, res: Response): Promise<any> => {
   }
 };
 
+const getMemberById = async (req: Request, res: Response): Promise<any> => {
+  try {
+    const memberId = req.params.id;
+    const member = await prisma.member.findUnique({
+      where: {
+        id: memberId,
+      }
+    });
+
+    if (!member) {
+      return res.status(404).json({ message: "Not found this id of member in database"})
+    }
+    
+    return res.status(200).json(member)
+  } catch (err) {
+      return res.status(500).json({ error: (err as Error).message });
+  }
+} 
+
 
 export default {
-  getAllMembers
+  getAllMembers,
+  getMemberById
 };
+
 
