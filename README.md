@@ -3,7 +3,8 @@
 ##Update 11/07/2025
 ```
 GET: /api/v1/members
-```w
+GET: /api/v1/members/:id
+```
 
 ## Hướng dẫn cấu hình khi clone dự án
 
